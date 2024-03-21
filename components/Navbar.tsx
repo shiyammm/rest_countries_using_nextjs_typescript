@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { ModeToggle } from '@/components/Theme';
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <header>
+      <nav className="flex justify-between px-10 py-10">
+        <div className="space-y-1">
+          <span className="text-xl font-semibold block">CountryInsight</span>
+          <span className="text-gray-500 text-sm block">
+            Viewing the World's Colors{' '}
+          </span>
+        </div>
+        <ModeToggle />
+      </nav>
+    </header>
+  );
+};
 
-export default Navbar
+export default Navbar;
