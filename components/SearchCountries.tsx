@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { InputWithButton } from './inputBtn';
 
 const SearchCountries = () => {
   return (
-    <div>SearchCountries</div>
-  )
-}
+    <div>
+      <InputWithButton />
+    </div>
+  );
+};
 
-export default SearchCountries
+export default SearchCountries;
