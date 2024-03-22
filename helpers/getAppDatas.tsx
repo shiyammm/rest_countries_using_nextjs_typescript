@@ -1,4 +1,4 @@
-import Country from '@/types/country';
+import { Country } from '@/types/countryTypes';
 
 const getAllCountries = async (): Promise<Country[]> => {
   try {

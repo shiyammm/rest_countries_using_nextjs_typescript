@@ -1,10 +1,21 @@
 import React from 'react';
-import { InputWithButton } from './inputBtn';
+import { SearchCountriesProps } from '@/types/countryTypes';
+import { Input } from './ui/input';
 
-const SearchCountries = () => {
+const SearchCountries: React.FC<SearchCountriesProps> = ({
+  searchResult,
+  setSearchResult,
+}) => {
   return (
     <div>
-      <InputWithButton />
+      <div className="w-[30rem]">
+        <Input
+          type="search"
+          placeholder="Search Countries"
+          value={searchResult}
+          onChange={(e) => setSearchResult(e.target.value)}
+        />
+      </div>
     </div>
   );
 };

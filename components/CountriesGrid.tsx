@@ -1,18 +1,15 @@
-import Country from '@/types/country';
+import { Country, CountriesGridProps } from '@/types/countryTypes';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-interface CountriesGridProps {
-  countries: Country[];
-}
-
-const CountriesGrid: React.FC<CountriesGridProps> = ({ countries }) => {
+const CountriesGrid: React.FC<CountriesGridProps> = ({ filteredCountries }) => {
   return (
-    <div className="grid grid-cols-4 gap-10 ">
-      {countries.map((country, i) => (
+    <Link href="" className="grid grid-cols-4 gap-10 ">
+      {filteredCountries.map((country, i) => (
         <div
           key={i}
-          className="h-[25rem] shadow-stone-800	shadow-lg rounded overflow-hidden"
+          className="h-[25rem] dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden"
         >
           <div className="bg-blue-400 h-1/2 overflow-hidden object-cover object-center ">
             <Image
@@ -46,7 +43,7 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({ countries }) => {
           </div>
         </div>
       ))}
-    </div>
+    </Link>
   );
 };
 

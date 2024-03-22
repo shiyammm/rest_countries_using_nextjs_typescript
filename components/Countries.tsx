@@ -1,18 +1,21 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { getAllCountries, getSingleCountry } from '@/helpers/getAppDatas';
-import Country from '@/types/country';
-import CountriesGrid from './CountriesGrid';
+import { Country } from '@/types/countryTypes';
+import CountriesGrid from '@/components/CountriesGrid';
+import Features from '@/components/Features';
 
 const Countries = () => {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [searchResult, setSearchResult] = useState<string>('');
+  const [selectedRegion, setSelectedRegion] = useState<string>('');
+  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const countriesData: Country[] = await getAllCountries();
         setCountries(countriesData);
-        console.log(countries);
       } catch (error) {
         console.error('Error fetching countries:', error);
       }
@@ -20,9 +23,30 @@ const Countries = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const result = countries.filter((country) => {
+      const matchSearch =
+        !searchResult ||
+        country.name.common.toLowerCase().includes(searchResult);
+      const matchRegion = !selectedRegion || country.region === selectedRegion;
+      return matchSearch && matchRegion;
+    });
+    setFilteredCountries(result);
+  }, [countries, selectedRegion, searchResult]);
+
   return (
     <section className="px-20 pt-8 mx-auto container max-w-[118rem]">
-      <CountriesGrid countries={countries} />
+      <Features
+        searchResult={searchResult}
+        setSearchResult={setSearchResult}
+        selectedRegion={selectedRegion}
+        setSelectedRegion={setSelectedRegion}
+      />
+      {searchResult.length > 0 ? (
+        <CountriesGrid filteredCountries={filteredCountries} />
+      ) : (
+        <CountriesGrid filteredCountries={filteredCountries} />
+      )}
     </section>
   );
 };
