@@ -1,4 +1,4 @@
-import { Country } from '@/types/countryTypes';
+import { Country, SingleCountry } from '@/types/countryTypes';
 
 const getAllCountries = async (): Promise<Country[]> => {
   try {
@@ -22,7 +22,8 @@ const getSingleCountry = async (countryName: string) => {
     if (!countryResponse.ok) {
       throw new Error('Failed to fetch country');
     }
-    const CountryData = await countryResponse.json();
+    const CountryData: SingleCountry[] = await countryResponse.json();
+    return CountryData;
   } catch (error) {
     console.error('Error fetching country:', error);
   }

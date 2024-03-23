@@ -14,6 +14,10 @@ export type FilterCountriesByRegionProps = {
   selectedRegion: string;
   setSelectedRegion: Dispatch<SetStateAction<string>>;
 };
+export type singleCountryState = {
+  singleCountry: string;
+  setSingleCountry: Dispatch<SetStateAction<string>>;
+};
 
 export type CountriesGridProps = {
   filteredCountries: Country[];
@@ -28,8 +32,43 @@ export type Name = {
 
 export type Country = {
   name: Name;
+  nativeName: string;
   region: string;
   population: string;
   capital: string;
   flags: { [format in FlagFormat]: string };
+};
+
+export type CountryParams = {
+  slug: string;
+};
+export type CountryData = {
+  CountryData: SingleCountry;
+};
+
+export type SingleCountry = {
+  name: Name;
+  region: string;
+  subregion: string;
+  population: string;
+  capital: string;
+  currencies: string[];
+  languages: string[];
+  borders: string[];
+  tld: string[];
+  flags: { [format in FlagFormat]: string };
+};
+
+export type fetchSingleCountry = {
+  countryName: string;
+  countryRegion: string;
+  countrySubRegion: string;
+  population: string;
+  capitalName: string;
+  currencies: string[] | string;
+  languages: string[] | string;
+  borders: string[] | string;
+  tld: string;
+  flag: string;
+  altFlag: string;
 };
