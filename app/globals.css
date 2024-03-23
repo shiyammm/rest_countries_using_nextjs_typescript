@@ -57,3 +57,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .countryHeight {
+    @apply h-[calc(100vh-100px)];
+  }
+}
