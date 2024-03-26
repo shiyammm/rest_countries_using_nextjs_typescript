@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getAllCountries, getSingleCountry } from '@/helpers/getAppDatas';
+import { getAllCountries } from '@/helpers/getAppDatas';
 import { Country } from '@/types/countryTypes';
 import CountriesGrid from '@/components/CountriesGrid';
 import Features from '@/components/Features';
@@ -35,7 +35,7 @@ const Countries = () => {
   }, [countries, selectedRegion, searchResult]);
 
   return (
-    <section className="px-20 pt-8 mx-auto container max-w-[118rem]">
+    <section className="px-20 md:px-10 pt-8 mx-auto container max-w-[118rem]">
       <Features
         searchResult={searchResult}
         setSearchResult={setSearchResult}
