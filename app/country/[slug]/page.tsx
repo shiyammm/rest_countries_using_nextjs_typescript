@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
-export async function generateStaticParameters() {
+export async function generateStaticParams() {
   const Countries = await getAllCountries();
 
   const slugCountries = Countries.map((country) =>
