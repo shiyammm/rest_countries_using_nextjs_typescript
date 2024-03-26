@@ -9,7 +9,7 @@ const Features: React.FC<CountriesProps> = ({
   selectedRegion,
 }) => {
   return (
-    <section className="flex pb-10 justify-between w-full items-center">
+    <section className="flex pb-10 justify-between w-full items-center md:flex-col md:items-start md:gap-5">
       <SearchCountries
         searchResult={searchResult}
         setSearchResult={setSearchResult}

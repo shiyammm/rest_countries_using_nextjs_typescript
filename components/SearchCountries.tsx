@@ -8,7 +8,7 @@ const SearchCountries: React.FC<SearchCountriesProps> = ({
 }) => {
   return (
     <div>
-      <div className="w-[30rem]">
+      <div className="w-[30rem] lg:w-[20rem]">
         <Input
           type="search"
           placeholder="Search Countries"
