@@ -120,7 +120,7 @@ const page = async ({ params }: { params: CountryParams }) => {
         capitalName={capitalName}
         currencies={currencies}
         languages={languages}
-        borders={borders}
+        borders={Array.isArray(borders) ? borders : []}
         tld={tld}
         flag={flag}
         altFlag={altFlag}

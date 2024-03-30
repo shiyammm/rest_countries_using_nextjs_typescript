@@ -52,9 +52,9 @@ export type SingleCountry = {
   subregion: string;
   population: string;
   capital: string;
-  currencies: string[];
-  languages: string[];
-  borders: string[];
+  currencies: { name: string }[] | string;
+  languages: { name: string }[] | string;
+  borders: string[] | string;
   tld: string[];
   flags: { [format in FlagFormat]: string };
 };
@@ -65,9 +65,9 @@ export type fetchSingleCountry = {
   countrySubRegion: string;
   population: string;
   capitalName: string;
-  currencies: string[] | string;
-  languages: string[] | string;
-  borders: string[] | string;
+  currencies: { name: string }[] | string;
+  languages: { name: string }[] | string;
+  borders: string[];
   tld: string;
   flag: string;
   altFlag: string;

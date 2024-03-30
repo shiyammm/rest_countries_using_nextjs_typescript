@@ -63,18 +63,18 @@ const CountryDetails: React.FC<fetchSingleCountry> = ({
               </li>
               <li className="text-2xl list-text 2xl:text-lg md:text-[1rem] font-medium">
                 Currencies:{' '}
-                {Object.keys(currencies).map((currencyCode, i) => (
+                {Object.values(currencies).map((currency, i) => (
                   <span key={i}>
-                    {currencies[currencyCode].name}
-                    {i < Object.keys(currencies).length - 1 ? ', ' : ' '}
+                    {currency.name}
+                    {i < Object.values(currencies).length - 1 ? ', ' : ' '}
                   </span>
                 ))}
               </li>
               <li className="text-2xl list-text 2xl:text-lg md:text-[1rem] font-medium">
                 Languages:{' '}
-                {Object.keys(languages).map((language, i) => (
+                {Object.values(languages).map((language, i) => (
                   <span key={i}>
-                    {languages[language]}
+                    {language.name}
                     {i < Object.keys(languages).length - 1 ? ', ' : ''}
                   </span>
                 ))}
@@ -89,10 +89,10 @@ const CountryDetails: React.FC<fetchSingleCountry> = ({
           </span>
           {borders && borders.length > 0 ? (
             <ul className="flex gap-5">
-              {Object.keys(borders).map((border, i) => (
+              {borders.map((border, i) => (
                 <li className="" key={i}>
                   <Button variant="outline">
-                    <span className="">{borders[border]}</span>
+                    <span className="">{border}</span>
                   </Button>
                 </li>
               ))}
