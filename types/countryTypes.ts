@@ -61,6 +61,7 @@ export type SingleCountry = {
 
 export type fetchSingleCountry = {
   countryName: string;
+  countryCommonName?: string;
   countryRegion: string;
   countrySubRegion: string;
   population: string;

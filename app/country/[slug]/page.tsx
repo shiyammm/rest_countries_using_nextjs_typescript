@@ -69,6 +69,7 @@ const page = async ({ params }: { params: CountryParams }) => {
     formattedSlug,
   );
   let countryName;
+  let countryCommonName;
   let countryRegion;
   let countrySubRegion;
   let population;
@@ -81,6 +82,7 @@ const page = async ({ params }: { params: CountryParams }) => {
   let altFlag;
   if (CountryData) {
     countryName = CountryData[0].name.official;
+    countryCommonName = CountryData[0].name.common ?? '';
     countryRegion = CountryData[0].region;
     countrySubRegion = CountryData[0].subregion;
     population = CountryData[0].population.toLocaleString();
@@ -114,6 +116,7 @@ const page = async ({ params }: { params: CountryParams }) => {
       </Link>
       <CountryDetails
         countryName={countryName}
+        countryCommonName={countryCommonName}
         countryRegion={countryRegion}
         countrySubRegion={countrySubRegion}
         population={population}

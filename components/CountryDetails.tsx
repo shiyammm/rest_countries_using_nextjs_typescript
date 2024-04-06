@@ -1,11 +1,10 @@
-import { getSingleCountry } from '@/helpers/getAppDatas';
-import { SingleCountry, fetchSingleCountry } from '@/types/countryTypes';
+import { fetchSingleCountry } from '@/types/countryTypes';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 
 const CountryDetails: React.FC<fetchSingleCountry> = ({
   countryName,
+  countryCommonName,
   countryRegion,
   countrySubRegion,
   population,
@@ -37,7 +36,7 @@ const CountryDetails: React.FC<fetchSingleCountry> = ({
             <ul className="space-y-5 xl:space-y-3 md:space-y-1  w-[30rem] 2xl:w-[18rem] text-part-width">
               <li className="text-2xl list-text 2xl:text-lg md:text-[1rem] font-medium">
                 Native name: {'  '}
-                <span className="font-normal">{countryName}</span>
+                <span className="font-normal">{countryCommonName}</span>
               </li>
               <li className="text-2xl list-text 2xl:text-lg md:text-[1rem] font-medium">
                 Population: {'  '}
