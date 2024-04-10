@@ -8,10 +8,11 @@ const Pagination: React.FC<PaginationProps> = ({
   setPage,
 }) => {
   const selectPage = (selectedPage: number) => {
-    if (selectedPage >= 1 && selectedPage <= 5) {
-      setPage(selectedPage);
-    }
+    setPage(selectedPage);
   };
+
+  // Calculate the number of pages based on the length of the filteredCountries array
+  const pageCount = Math.floor(filteredCountries.length / 50);
 
   return (
     <div className="pagination flex justify-center w-full h-14 my-14">
@@ -23,20 +24,20 @@ const Pagination: React.FC<PaginationProps> = ({
           >
             Previous
           </Button>
-          {[...Array(filteredCountries.length / 50)].map((_, i) => (
+          {/* Render page buttons based on the pageCount */}
+          {Array.from({ length: pageCount }).map((_, i) => (
             <Button
+              key={i + 1}
               onClick={() => selectPage(i + 1)}
-              className={` ${
-                page == i + 1 ? 'bg-white text-black' : 'bg-black text-white'
+              className={`${
+                page === i + 1 ? 'bg-white text-black' : 'bg-black text-white'
               }`}
             >
               {i + 1}
             </Button>
           ))}
           <Button
-            className={`${
-              page < filteredCountries.length / 50 ? 'block' : 'opacity-0'
-            }`}
+            className={`${page < pageCount ? 'block' : 'opacity-0'}`}
             onClick={() => selectPage(page + 1)}
           >
             Next
