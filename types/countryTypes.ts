@@ -21,6 +21,12 @@ export type singleCountryState = {
 
 export type CountriesGridProps = {
   filteredCountries: Country[];
+  page: number;
+};
+export type PaginationProps = {
+  filteredCountries: Country[];
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
 };
 
 export type FlagFormat = 'png' | 'svg' | 'alt';

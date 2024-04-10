@@ -4,12 +4,14 @@ import { getAllCountries } from '@/helpers/getAppDatas';
 import { Country } from '@/types/countryTypes';
 import CountriesGrid from '@/components/CountriesGrid';
 import Features from '@/components/Features';
+import Pagination from './Pagination';
 
 const Countries = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchResult, setSearchResult] = useState<string>('');
   const [selectedRegion, setSelectedRegion] = useState<string>('');
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,10 +45,15 @@ const Countries = () => {
         setSelectedRegion={setSelectedRegion}
       />
       {searchResult.length > 0 ? (
-        <CountriesGrid filteredCountries={filteredCountries} />
+        <CountriesGrid page={page} filteredCountries={filteredCountries} />
       ) : (
-        <CountriesGrid filteredCountries={filteredCountries} />
+        <CountriesGrid page={page} filteredCountries={filteredCountries} />
       )}
+      <Pagination
+        page={page}
+        setPage={setPage}
+        filteredCountries={filteredCountries}
+      />
     </section>
   );
 };

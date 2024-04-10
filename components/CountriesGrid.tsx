@@ -3,10 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const CountriesGrid: React.FC<CountriesGridProps> = ({ filteredCountries }) => {
+const CountriesGrid: React.FC<CountriesGridProps> = ({
+  filteredCountries,
+  page,
+}) => {
   return (
     <div className="grid grid-cols-4 gap-10 2xl:grid-cols-3 xl:grid-cols-2 sm:grid-cols-1">
-      {filteredCountries.map((country, i) => {
+      {filteredCountries.slice(page * 50 - 50, page * 50).map((country, i) => {
         const countrySlug = country.name.common
           .toLowerCase()
           .replace(/[^a-z0-9À-ÿ]+/g, '-');
