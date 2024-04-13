@@ -37,7 +37,12 @@ const Countries = () => {
   }, [countries, selectedRegion, searchResult]);
 
   return (
-    <section className="px-20 md:px-10 pt-8 mx-auto container max-w-[118rem]">
+    <section
+      className="pt-8 mx-auto container max-w-[120rem]"
+      style={{
+        paddingInline: 'calc(2.5rem + 2.5vw)',
+      }}
+    >
       <Features
         searchResult={searchResult}
         setSearchResult={setSearchResult}

@@ -30,7 +30,7 @@ const Pagination: React.FC<PaginationProps> = ({
               key={i + 1}
               onClick={() => selectPage(i + 1)}
               className={`${
-                page === i + 1 ? 'bg-white text-black' : 'bg-black text-white'
+                page === i + 1 ? 'bg-white text-black' : 'bg-black text-white hover:text-black'
               }`}
             >
               {i + 1}

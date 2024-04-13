@@ -8,7 +8,12 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({
   page,
 }) => {
   return (
-    <div className="grid grid-cols-4 gap-10 2xl:grid-cols-3 xl:grid-cols-2 sm:grid-cols-1">
+    <div
+      className="grid grid-cols-5 2xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1"
+      style={{
+        gap: 'calc(1.5rem + 1.5vw)',
+      }}
+    >
       {filteredCountries.slice(page * 50 - 50, page * 50).map((country, i) => {
         const countrySlug = country.name.common
           .toLowerCase()
@@ -17,7 +22,11 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({
           <Link
             href={`/country/${countrySlug}`}
             key={i}
-            className="h-[25rem] md:h-[20rem] sm:h-[25rem] dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden"
+            style={{
+              width: 'calc(9.1rem + 9.1vw)',
+              height: 'calc(9.1rem + 9.1vw)',
+            }}
+            className=" dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden"
           >
             <div className="h-1/2 overflow-hidden object-cover object-center ">
               <Image
@@ -28,26 +37,73 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({
                 className=""
               ></Image>
             </div>
-            <div className=" h-1/2 p-7 md:p-4 sm:p-7">
-              <h1 className="text-xl  font-semibold mb-5 md:mb-2">
+            <div
+              className=" h-1/2"
+              style={{
+                padding: 'calc(0.45rem + 0.45vw)',
+              }}
+            >
+              <h1
+                className="text-xl  font-semibold"
+                style={{
+                  fontSize: 'calc(0.55rem + 0.55vw)',
+                  // marginTop: 'calc(0.45rem + 0.45vw)',
+                }}
+              >
                 {country.name.common}
               </h1>
-              <ul className="space-y-2 md:space-y-1">
-                <li className="text-lg md:text-lg  font-medium">
+              <ul
+                className="flex flex-col"
+                style={{
+                  marginTop: 'calc(0.25rem + 0.25vw)',
+                  gap: 'calc(0.15rem + 0.15vw)',
+                }}
+              >
+                <li
+                  className="font-medium"
+                  style={{
+                    fontSize: 'calc(0.45rem + 0.45vw)',
+                  }}
+                >
                   Population:{' '}
-                  <span className="text-lg md:text-lg  font-normal">
+                  <span
+                    className="font-normal"
+                    style={{
+                      fontSize: 'calc(0.45rem + 0.45vw)',
+                    }}
+                  >
                     {country.population.toLocaleString()}
                   </span>
                 </li>
-                <li className="text-lg md:text-lg  font-medium">
+                <li
+                  className="font-medium"
+                  style={{
+                    fontSize: 'calc(0.45rem + 0.45vw)',
+                  }}
+                >
                   Region:{' '}
-                  <span className="text-lg md:text-lg  font-normal">
+                  <span
+                    className="font-normal"
+                    style={{
+                      fontSize: 'calc(0.45rem + 0.45vw)',
+                    }}
+                  >
                     {country.region}
                   </span>
                 </li>
-                <li className="text-lg md:text-lg  font-medium">
+                <li
+                  className="font-medium"
+                  style={{
+                    fontSize: 'calc(0.45rem + 0.45vw)',
+                  }}
+                >
                   Capital:{' '}
-                  <span className="text-lg md:text-lg  font-normal">
+                  <span
+                    className="font-normal"
+                    style={{
+                      fontSize: 'calc(0.45rem + 0.45vw)',
+                    }}
+                  >
                     {country.capital}
                   </span>
                 </li>
