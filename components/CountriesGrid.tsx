@@ -1,4 +1,4 @@
-import { Country, CountriesGridProps } from '@/types/countryTypes';
+import { CountriesGridProps } from '@/types/countryTypes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -22,33 +22,25 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({
           <Link
             href={`/country/${countrySlug}`}
             key={i}
-            style={{
-              width: 'calc(9.1rem + 9.1vw)',
-              height: 'calc(9.1rem + 9.1vw)',
-            }}
-            className=" dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden"
+            className=" dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden country"
           >
-            <div className="h-1/2 overflow-hidden object-cover object-center ">
+            <div className="h-1/2 overflow-hidden object-cover object-center">
               <Image
                 src={country.flags.svg}
                 alt={country.flags.alt}
                 width={500}
-                height={600}
+                height={500}
                 className=""
               ></Image>
             </div>
             <div
-              className=" h-1/2"
+              className=" h-1/2 country-details"
               style={{
                 padding: 'calc(0.45rem + 0.45vw)',
               }}
             >
               <h1
                 className="text-xl  font-semibold"
-                style={{
-                  fontSize: 'calc(0.55rem + 0.55vw)',
-                  // marginTop: 'calc(0.45rem + 0.45vw)',
-                }}
               >
                 {country.name.common}
               </h1>
@@ -61,48 +53,30 @@ const CountriesGrid: React.FC<CountriesGridProps> = ({
               >
                 <li
                   className="font-medium"
-                  style={{
-                    fontSize: 'calc(0.45rem + 0.45vw)',
-                  }}
                 >
                   Population:{' '}
                   <span
                     className="font-normal"
-                    style={{
-                      fontSize: 'calc(0.45rem + 0.45vw)',
-                    }}
                   >
                     {country.population.toLocaleString()}
                   </span>
                 </li>
                 <li
                   className="font-medium"
-                  style={{
-                    fontSize: 'calc(0.45rem + 0.45vw)',
-                  }}
                 >
                   Region:{' '}
                   <span
                     className="font-normal"
-                    style={{
-                      fontSize: 'calc(0.45rem + 0.45vw)',
-                    }}
                   >
                     {country.region}
                   </span>
                 </li>
                 <li
                   className="font-medium"
-                  style={{
-                    fontSize: 'calc(0.45rem + 0.45vw)',
-                  }}
                 >
                   Capital:{' '}
                   <span
                     className="font-normal"
-                    style={{
-                      fontSize: 'calc(0.45rem + 0.45vw)',
-                    }}
                   >
                     {country.capital}
                   </span>

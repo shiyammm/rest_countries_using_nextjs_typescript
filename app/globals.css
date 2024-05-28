@@ -66,6 +66,14 @@
     @apply h-[calc(100vh-100px)];
   }
 }
+
+.country-details h1 {
+  font-size: calc(0.55rem + 0.55vw);
+}
+.country-details li {
+  font-size: calc(0.45rem + 0.45vw);
+}
+
 @media (max-width: 1808px) {
   .countryImage {
     width: 40rem;
@@ -104,5 +112,19 @@
   .countryImage {
     width: 30rem;
     height: 20rem;
+  }
+}
+
+@media (max-width: 510px) {
+  .country-details {
+    margin-left: calc(0.5rem + 0.5vw);
+    margin-top: calc(0.5rem + 0.5vw);
+    margin-bottom: calc(0.5rem + 0.5vw);
+  }
+  .country-details h1 {
+    font-size: calc(1rem + 1vw);
+  }
+  .country-details li {
+    font-size: calc(.8rem + .8vw);
   }
 }

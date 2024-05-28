@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { PaginationProps } from '@/types/countryTypes';
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+
 
 const Pagination: React.FC<PaginationProps> = ({
   filteredCountries,
@@ -17,12 +20,12 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="pagination flex justify-center w-full h-14 my-14">
       {filteredCountries.length > 0 && (
-        <div className="space-x-5 flex">
+        <div className="sm:gap-2 gap-5 flex">
           <Button
-            className={`${page > 1 ? 'block' : 'opacity-0'}`}
+            className={`${page > 1 ? 'block' : 'hidden'}`}
             onClick={() => selectPage(page - 1)}
           >
-            Previous
+            <IoIosArrowBack/>
           </Button>
           {/* Render page buttons based on the pageCount */}
           {Array.from({ length: pageCount }).map((_, i) => (
@@ -37,10 +40,10 @@ const Pagination: React.FC<PaginationProps> = ({
             </Button>
           ))}
           <Button
-            className={`${page < pageCount ? 'block' : 'opacity-0'}`}
+            className={`${page < pageCount ? 'block' : 'hidden'}`}
             onClick={() => selectPage(page + 1)}
           >
-            Next
+            <IoIosArrowForward/>
           </Button>
         </div>
       )}
