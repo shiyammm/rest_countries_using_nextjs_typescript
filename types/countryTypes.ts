@@ -79,3 +79,15 @@ export type fetchSingleCountry = {
   flag: string;
   altFlag: string;
 };
+
+export type CountriesContextProps = {
+  countries: Country[];
+  loading: boolean;
+  searchResult: string;
+  setSearchResult: React.Dispatch<React.SetStateAction<string>>;
+  selectedRegion: string;
+  setSelectedRegion: React.Dispatch<React.SetStateAction<string>>;
+  filteredCountries: Country[];
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+};
