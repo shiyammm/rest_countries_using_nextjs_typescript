@@ -1,8 +1,7 @@
 'use client';
-import React, { Suspense } from 'react';
+import React from 'react';
 import CountriesGrid from '@/components/CountriesGrid';
 import { useCountries } from '@/context/CountriesContext';
-import Loading from '@/components/Loading';
 
 const Countries = () => {
   const { loading } = useCountries();
