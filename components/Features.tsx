@@ -1,13 +1,11 @@
 import SearchCountries from './SearchCountries';
 import FilterRegion from './FilterRegion';
-import { CountriesProps } from '@/types/countryTypes';
+import { useCountries } from '@/context/CountriesContext';
 
-const Features: React.FC<CountriesProps> = ({
-  searchResult,
-  setSelectedRegion,
-  setSearchResult,
-  selectedRegion,
-}) => {
+const Features: React.FC = () => {
+  const { searchResult, setSearchResult, selectedRegion, setSelectedRegion } =
+    useCountries();
+
   return (
     <section className="flex pb-10 justify-between w-full items-center md:flex-col md:items-start md:gap-5">
       <SearchCountries

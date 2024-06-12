@@ -1,15 +1,12 @@
 import React from 'react';
 import { Button } from './ui/button';
-import { PaginationProps } from '@/types/countryTypes';
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
+import { useCountries } from '@/context/CountriesContext';
 
+const Pagination = () => {
+  const { filteredCountries, page, setPage } = useCountries();
 
-const Pagination: React.FC<PaginationProps> = ({
-  filteredCountries,
-  page,
-  setPage,
-}) => {
   const selectPage = (selectedPage: number) => {
     setPage(selectedPage);
   };
@@ -25,7 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({
             className={`${page > 1 ? 'block' : 'hidden'}`}
             onClick={() => selectPage(page - 1)}
           >
-            <IoIosArrowBack/>
+            <IoIosArrowBack />
           </Button>
           {/* Render page buttons based on the pageCount */}
           {Array.from({ length: pageCount }).map((_, i) => (
@@ -33,7 +30,9 @@ const Pagination: React.FC<PaginationProps> = ({
               key={i + 1}
               onClick={() => selectPage(i + 1)}
               className={`${
-                page === i + 1 ? 'bg-white text-black' : 'bg-black text-white hover:text-black'
+                page === i + 1
+                  ? 'bg-white text-black'
+                  : 'bg-black text-white hover:text-black'
               }`}
             >
               {i + 1}
@@ -43,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({
             className={`${page < pageCount ? 'block' : 'hidden'}`}
             onClick={() => selectPage(page + 1)}
           >
-            <IoIosArrowForward/>
+            <IoIosArrowForward />
           </Button>
         </div>
       )}
