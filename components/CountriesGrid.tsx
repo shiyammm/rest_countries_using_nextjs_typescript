@@ -20,7 +20,7 @@ const CountriesGrid = () => {
           <Link
             href={`/country/${countrySlug}`}
             key={i}
-            className="dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden country"
+            className="shadow-lg dark:shadow-md dark:shadow-stone-900 rounded-lg overflow-hidden country"
           >
             <div className="h-1/2 overflow-hidden object-cover">
               <Image

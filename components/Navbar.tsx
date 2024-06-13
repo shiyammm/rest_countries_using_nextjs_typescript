@@ -3,7 +3,7 @@ import { ModeToggle } from '@/components/Theme';
 
 const Navbar = () => {
   return (
-    <header>
+    <header className='shadow-md dark:shadow-stone-900' >
       <nav className="flex justify-between px-10 items-center h-[100px]">
         <div className="space-y-1">
           <a href="/" className="text-xl font-semibold block">
