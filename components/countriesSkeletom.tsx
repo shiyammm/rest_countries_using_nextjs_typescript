@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
-export function SkeletonCard() {
+export function SkeletonCardCountry() {
   return (
     <div className="flex space-x-[8rem]">
       <Skeleton className="w-[50rem] object-cover h-[30rem]" />

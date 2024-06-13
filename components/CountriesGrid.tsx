@@ -3,11 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const CountriesGrid = () => {
-  const { loading, filteredCountries, page } = useCountries();
-
-  if (filteredCountries.length === 0) {
-    return <div>No countries found</div>;
-  }
+  const { filteredCountries, page } = useCountries();
 
   return (
     <div
@@ -24,7 +20,7 @@ const CountriesGrid = () => {
           <Link
             href={`/country/${countrySlug}`}
             key={i}
-            className=" dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden country"
+            className="dark:shadow-stone-800 shadow-stone-400 shadow-lg rounded-lg overflow-hidden country"
           >
             <div className="h-1/2 overflow-hidden object-cover">
               <Image
@@ -36,7 +32,7 @@ const CountriesGrid = () => {
               ></Image>
             </div>
             <div
-              className=" h-1/2 country-details"
+              className="h-1/2 country-details"
               style={{
                 padding: 'calc(0.45rem + 0.45vw)',
               }}

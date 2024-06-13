@@ -17,13 +17,13 @@ const CountryDetails: React.FC<fetchSingleCountry> = ({
   altFlag,
 }) => {
   return (
-    <section className="flex gap-x-[7rem] xl:gap-x-[4rem] lg:flex-col lg:gap-y-[3rem] lg:mt-[7rem] sm:mt-[8rem]">
-      <div>
+    <section className="flex gap-x-[7rem] xl:gap-x-[4rem] lg:flex-col lg:gap-y-[3rem] lg:mt-[7rem] sm:mt-[20rem] justify-center sm:px-4 sm:py-9">
+      <div className="flex sm:w-[20rem]" >
         <Image
           src={flag}
-          width={400}
-          height={400}
-          className="w-[50rem] lg:w-[40rem] md:w-[35rem] sm:w-[30rem] xs:w-[20rem] xs:h-[10rem] sm:h-[15rem] object-cover  h-[30rem] countryImage"
+          width={500}
+          height={500}
+          className="w-[50rem] lg:w-[40rem] md:w-[35rem] sm:w-[30rem] xs:w-[20rem] xs:h-[10rem] sm:h-[15rem] object-cover h-[30rem] countryImage"
           alt={altFlag}
         ></Image>
       </div>
@@ -82,7 +82,7 @@ const CountryDetails: React.FC<fetchSingleCountry> = ({
           </div>
         </div>
 
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-5">
           <span className="text-2xl list-text 2xl:text-lg md:text-[1rem] font-medium">
             Borders:{'  '}
           </span>
